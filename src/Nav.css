@@ -23,24 +23,24 @@
   left: 0;
   width: 80px;
   object-fit: contain;
-  padding-left: 20px;
+  padding-left: 10px;
   cursor: pointer;
 }
 
 .nav_menu {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 16px;
   position: fixed;
   top: 30px;
-  left: 110px;
+  left: 95px;
 }
 
 .navBtn {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 1.7rem;
   color: #e6e6e6;
 }
@@ -56,14 +56,14 @@
 }
 
 .nav_search {
-  width: 27px;
-  height: 27px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
   object-fit: contain;
 }
 
 .nav_bell {
-  width: 30px;
+  width: 27px;
   cursor: pointer;
   object-fit: contain;
 }
@@ -104,7 +104,7 @@
   width: 80%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 450px) {
   .nav_contents {
     flex-direction: row;
     align-items: flex-start;
