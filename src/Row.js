@@ -12,6 +12,7 @@ function Row({
 }) {
   const [movies, setMovies] = useState([]);
   const searchQuery = filteredMovie ? filteredMovie.toLowerCase() : "";
+  const API_KEY = "e3fe1761be7e408f4ad5f4ab426e3b82";
 
   let filtered = searchQuery
     ? movies.filter((movie) =>
@@ -55,7 +56,21 @@ function Row({
     fetchData();
   }, [fetchUrl]);
 
-  console.log("movie", filtered);
+  const fetchTrailer = async (movie) => {
+    try {
+      const response = await axios.get(
+        `/movie/${movie?.id}/videos?api_key=${API_KEY}`
+      );
+      const trailers = response.data.results;
+      const trailer = trailers.find((vid) => vid.type === "Trailer");
+      if (trailer) {
+        window.open(`https://www.youtube.com/watch?v=${trailer.key}`);
+      }
+    } catch (error) {
+      console.error("Error fetching trailer: ", error);
+    }
+  };
+
   return (
     <div className="row">
       {filtered.length > 0 && <h2>{title}</h2>}
@@ -75,7 +90,14 @@ function Row({
                 />
                 <div className="row_posterDetails">
                   <div className="posterButton_rating">
-                    <button className="poster_button">Play Now</button>
+                    <button
+                      className="poster_button"
+                      onClick={() => {
+                        fetchTrailer(movie);
+                      }}
+                    >
+                      Play Now
+                    </button>
                     <p>{movieRating(movie.vote_average)} ⭐</p>
                     {/* <img src="https://www.svgrepo.com/show/424902/imdb-logo-cinema.svg" /> */}
                   </div>

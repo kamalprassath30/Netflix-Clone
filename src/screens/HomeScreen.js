@@ -36,7 +36,7 @@ function HomeScreen() {
         { title: "Action Movies", fetchUrl: requests.fetchActionMovies },
         { title: "Comedy Movies", fetchUrl: requests.fetchComedyMovies },
         { title: "Horror Movies", fetchUrl: requests.fetchHorrorMovies },
-        { title: "Romance Movies", fetchUrl: requests.fetchRomanceMovies },
+        // { title: "Romance Movies", fetchUrl: requests.fetchRomanceMovies },
         { title: "Documentaries", fetchUrl: requests.fetchDocumentaries },
       ].map((row) => (
         <Row
